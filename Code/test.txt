@@ -1,0 +1,238 @@
+\documentclass[12pt]{book}
+
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage[hidelinks]{hyperref} 
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!80!black},
+    citecolor={blue!80!black},
+    urlcolor={blue!80!black}
+}
+\usepackage{url} 
+\usepackage{multirow} 
+\usepackage{array} 
+
+\usetikzlibrary{decorations.fractals}
+
+%%%%%%%%%%%%%%%%% Header Definitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\fancypagestyle{plain}{%
+        \fancyhead{} % get rid of headers
+        \renewcommand{\headrulewidth}{0pt} % and the line
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{exercise}{\hspace{-1.7mm}}[chapter]
+
+\newcommand{\qed}{\rule{0.5em}{1.5ex}}
+\newcommand{\fqed}{{\hfill~\qed}}
+\newenvironment{proof}{{\noindent \bf Proof.}}
+                      {{\hfill \fqed} \vspace{1em}}
+
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IE}{\mathbb{E}}
+\newcommand{\IN}{\mathbb{N}}
+\newcommand{\IZ}{\mathbb{Z}}
+\newcommand{\IQ}{\mathbb{Q}}
+
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{0.0}
+
+\setlength{\unitlength}{1mm}
+
+%%%%%%%%%%%%Separating rule above/below figures%%%%%%%%%%%%%%%%%%%%%
+\setlength{\textfloatsep}{5ex}
+\newcommand{\topfigrule}{\noindent\rule[-0.5cm]{\textwidth}{0.2mm}\vspace*{-6pt}
+\noindent}
+\newcommand{\botfigrule}{\noindent\rule[-0.5cm]{\textwidth}{0.2mm}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Capsule %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\capsule}[2]{\vspace{0.5em}
+  \shadowbox{%
+    \begin{minipage}{.90\linewidth}%
+      \textbf{#1:}~#2%
+    \end{minipage}}
+  \vspace{0.5em} }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%% Capsule %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\capsulenew}[1]{\vspace{0.5em}
+  \shadowbox{%
+    \begin{minipage}{.90\linewidth}%
+      #1%
+    \end{minipage}}
+  \vspace{0.5em} }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Cr}{\mathord{\it cr}}
+\newcommand{\DEG}{\mathord{\it deg}}
+\newcommand{\TRUE}{\mathord{\it true}}
+\newcommand{\FALSE}{\mathord{\it false}}
+\newcommand{\AND}{\mathord{\it AND}}
+\newcommand{\OR}{\mathord{\it OR}}
+\newcommand{\XOR}{\mathord{\it XOR}}
+\newcommand{\NOT}{\mathord{\it NOT}}
+\newcommand{\inc}{\mathord{\it inc}}
+\newcommand{\dec}{\mathord{\it dec}}
+\newcommand{\BC}{\mathord{\it BCoeff}}
+\newcommand{\SUCC}{\mathord{\it succ}}
+\newcommand{\NIL}{\mathord{\it nil}}
+\newcommand{\HEAD}{\mathord{\it head}}
+\newcommand{\Min}{\mathord{\it min}}
+\newcommand{\Max}{\mathord{\it max}}
+\newcommand{\Key}{\mathord{\it key}}
+\newcommand{\Right}{\mathord{\it right}}
+\newcommand{\Down}{\mathord{\it down}}
+\newcommand{\SF}{\mathord{\it SF}}
+\newcommand{\MSM}{\mathord{\it MSM}}
+\newcommand{\SMS}{\mathord{\it SMS}}
+\newcommand{\CW}{\mathord{\it CW}}
+\newcommand{\CCW}{\mathord{\it CCW}}
+\newcommand{\GCD}{\mathord{\it gcd}}
+
+\newcommand{\fib}{\textsf{\sc Fib}}
+\newcommand{\BEER}{\textsf{\sc Beer}}
+\newcommand{\gossip}{\textsf{\sc gossip}}
+\newcommand{\MULT}{\textsf{\sc Mult}}
+\newcommand{\FBB}{\textsf{\sc FindBigBox}}
+\newcommand{\IS}{\textsf{\sc InsertionSort}}
+\newcommand{\LSFL}{\textsf{\sc LinearSearchLeftToRight}}
+\newcommand{\LSFR}{\textsf{\sc LinearSearchRightToLeft}}
+\newcommand{\RLS}{\textsf{\sc RandomLinearSearch}}
+\newcommand{\GBC}{\textsf{\sc GenerateBinomCoeff}}
+\newcommand{\MS}{\textsf{\sc MergeSort}}
+\newcommand{\CP}{\textsf{\sc ClosestPair}}
+\newcommand{\MAXEL}{\textsf{\sc MaxElem}}
+\newcommand{\Merge}{\textsf{\sc Merge}}
+\newcommand{\Random}{\textsf{\sc Random}}
+\newcommand{\CRN}{\textsf{\sc ChooseRandomNode}}
+\newcommand{\MAX}{\textsf{\sc FindMax}}
+\newcommand{\qsort}{\textsf{\sc QuickSort}}
+\newcommand{\Search}{\textsf{\sc Search}}
+\newcommand{\Insert}{\textsf{\sc Insert}}
+\newcommand{\Delete}{\textsf{\sc Delete}}
+\newcommand{\ED}{\textsf{\sc EstimateD}}
+\newcommand{\MINMAX}{\textsf{\sc MinMax}}
+\newcommand{\FMINMAX}{\textsf{\sc FastMinMax}}
+\newcommand{\GRB}{\textsf{\sc GetRandomBit}}
+\newcommand{\GBB}{\textsf{\sc GetBiasedBit}}
+\newcommand{\silly}{\textsf{\sc Silly}}
+\newcommand{\IndepSet}{\textsf{\sc IndepSet}}
+\newcommand{\JDIPA}{\textsf{\sc JenniferDrinksIPA}}
+\newcommand{\TTFRO}{\textsf{\sc TryToFindRightmostOne}}
+\newcommand{\TT}{\textsf{\sc TwoTails}}
+\newcommand{\FFR}{\textsf{\sc FlipAndFlipOrRoll}}
+\newcommand{\TaS}{\textsf{\sc TakeASeat}}
+\newcommand{\EGTTP}{\textsf{\sc ElisaGoesToThePub}}
+\newcommand{\EDC}{\textsf{\sc ElisaDrinksCider}}
+\newcommand{\EDCider}{\textsf{\sc ElisaDrinksCider}}
+\newcommand{\Mystery}{\textsf{\sc Mystery}}
+\newcommand{\RanSub}{\textsf{\sc RandomSubset}}
+\newcommand{\GB}{\textsf{\sc GenerateBit}}
+\newcommand{\Euclid}{\textsf{\sc Euclid}}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%Pascal's Triangle%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newcommand\binomialCoefficient[2]{%
+    % Store values 
+    \c@pgf@counta=#1% n
+    \c@pgf@countb=#2% k
+    %
+    % Take advantage of symmetry if k > n - k
+    \c@pgf@countc=\c@pgf@counta%
+    \advance\c@pgf@countc by-\c@pgf@countb%
+    \ifnum\c@pgf@countb>\c@pgf@countc%
+        \c@pgf@countb=\c@pgf@countc%
+    \fi%
+    %
+    % Recursively compute the coefficients
+    \c@pgf@countc=1% will hold the result
+    \c@pgf@countd=0% counter
+    \pgfmathloop% c -> c*(n-i)/(i+1) for i=0,...,k-1
+        \ifnum\c@pgf@countd<\c@pgf@countb%
+        \multiply\c@pgf@countc by\c@pgf@counta%
+        \advance\c@pgf@counta by-1%
+        \advance\c@pgf@countd by1%
+        \divide\c@pgf@countc by\c@pgf@countd%
+    \repeatpgfmathloop%
+    \the\c@pgf@countc%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Discrete Structures for Computer Science: \\ 
+       Counting, Recursion, and Probability} 
+\author{Michiel Smid  \vspace{0.5em} \\
+        \emph{\small School of Computer Science} \\
+        \emph{\small Carleton University} \\
+        \emph{\small Ottawa, Ontario} \\
+        \emph{\small Canada} \\
+        {\small {\tt michiel@scs.carleton.ca}}}
+\date{\today  \\
+      \vspace{6cm}
+      \includegraphics[scale=0.8]{FIGS/by-sa}}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\thispagestyle{plain} 
+
+\fancyhead[LO]{\bfseries Contents}
+\fancyhead[RE]{\bfseries Contents}
+\tableofcontents
+
+\input{Preface}
+
+\mainmatter
+
+\input{ChapterIntroduction}
+
+\input{ChapterPrelim}
+
+\input{ChapterCounting}
+
+\input{ChapterRecursion}
+
+\input{ChapterDiscProb}
+
+\input{ChapterRandomExpect}
+
+\input{ChapterProbMethod}
+
+\input{ChapterNew}
+
+\end{document}

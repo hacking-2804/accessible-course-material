@@ -1,0 +1,9 @@
+# Replace $ with brackets for latex math
+\$(.*?)\$
+\( $1 \)
+
+``
+"
+
+''
+"

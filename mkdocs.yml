@@ -1,0 +1,10 @@
+site_name: COMP 2804
+
+theme:
+    name: readthedocs
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math
